@@ -38,3 +38,45 @@ function renderLicenseBadge(license) {
       return `[License](#license)`;
     }
   }
+
+  // function to generate the markdown
+
+  function generateMarkdown(data) {
+    const license = data.license;
+  
+    return `# ${data.title} 
+  ${renderLicenseBadge(license)}
+    
+  ## Table of Contents
+  [Description](#description)
+  [Installation](#installation)
+  [Usage](#usage)
+  [Testing](#tests)
+  [Contributors](#contributors)
+  [Questions](#questions)
+  ${renderLicenseContent(license)}
+  
+  ## Description
+  ${data.description}
+  
+  ## Installation
+  ${data.installation}
+  
+  ## Usage
+  ${data.usage}
+  
+  ## Testing
+  ${data.tests}
+  
+  ## Contributors
+  ${data.contributors}
+  
+  ## Questions
+  ${data.question}
+  For any other questions, find me on Github: [${data.username}](https://github.com/${data.username})
+  or email me at [${data.email}](mailto:${data.email})
+  
+  ${renderLicenseSection(license)}`
+  };
+  
+  module.exports = generateMarkdown;
